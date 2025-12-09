@@ -7,10 +7,10 @@ from pandas.tseries.offsets import BDay
 import matplotlib.pyplot as plt
 import ta # <-- 導入 ta
 
-def predict_future_close(num_days=60):
+def predict_future_close(num_days=10):
     
     # --- 1. 設定 & 載入 ---
-    STOCK_ID = "3008" # 確保這裡的代號與您訓練的一致
+    STOCK_ID = "1301" # 確保這裡的代號與您訓練的一致
     
     # 檢測 GPU
     if torch.cuda.is_available():
@@ -128,4 +128,4 @@ def predict_future_close(num_days=60):
     print(f"已儲存預測為 future_prediction{STOCK_ID}.xlsx")
 
 if __name__ == "__main__":
-    predict_future_close(num_days=60)
+    predict_future_close(num_days=10)

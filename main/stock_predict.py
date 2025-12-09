@@ -6,6 +6,8 @@ from sklearn.metrics import f1_score, accuracy_score
 from stock_dataset import StockDataset
 from stock_xlstm import StockxLSTM
 
+STOCK_ID = "3008"
+
 def safe_r2_score(y_true, y_pred):
     """安全計算R²，避免除零錯誤"""
     ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
@@ -33,10 +35,10 @@ def calculate_trend_metrics(actuals, preds):
 
 def main():
     # 1. 載入訓練時儲存的scaler
-    scaler = joblib.load("2330_scaler.save")
+    scaler = joblib.load(f"{STOCK_ID}_scaler.save")
     
     # 2. 準備測試集
-    test_dataset = StockDataset("test_2330.csv", sequence_length=30)    
+    test_dataset = StockDataset(f"test_{STOCK_ID}.csv", sequence_length=30)    
     test_size = min(100, len(test_dataset))
     test_indices = range(len(test_dataset) - test_size, len(test_dataset))
         
@@ -49,7 +51,7 @@ def main():
         dropout=0.4,
         lstm_type="slstm" # <-- 【修改】
     )
-    model.load_state_dict(torch.load("2330model.pth"))
+    model.load_state_dict(torch.load(f"{STOCK_ID}model.pth"))
     model.eval()
 
     # 4. 預測
@@ -106,7 +108,7 @@ def main():
     plt.subplot(2, 1, 1)
     plt.plot(actuals_real, label='Actual closing price', linewidth=2, marker='o', markersize=5)
     plt.plot(predictions_real, label='Predicted closing price', linewidth=2, linestyle='--', marker='x', markersize=5)
-    plt.title('2330 Price Forecast Results', fontsize=16)
+    plt.title(f"{STOCK_ID} Price Forecast Results", fontsize=16)
     plt.ylabel('Price', fontsize=12)
     plt.legend(fontsize=12, loc='upper left')
     plt.grid(True, alpha=0.3)
@@ -123,7 +125,7 @@ def main():
     plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('stock_prediction_results.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f"{STOCK_ID}stock_prediction_results.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 if __name__ == "__main__":
