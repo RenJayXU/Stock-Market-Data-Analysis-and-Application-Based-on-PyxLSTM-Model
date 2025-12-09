@@ -1,7 +1,3 @@
-這是一份完整的 `README.md` 檔案內容，您可以直接複製並貼上到您 GitHub 儲存庫的根目錄中。
-
-這份文件整合了我們之前討論的所有修正與優化，包含了**專案介紹**、**核心依賴設置**（特別是 `xLSTM` 模組）、**執行順序**以及**環境需求**。
-
 ````markdown
 # Stock Market Data Analysis and Application Based on PyxLSTM Model
 
@@ -23,9 +19,9 @@
 
 ```text
 ├── data/                       # 原始股價 CSV 資料 (需包含 Date, Open, High, Low, Close, Volume)
-├── processed_data/             # [自動產生] 預處理後的訓練/驗證/測試集與 Scaler
-├── models/                     # [自動產生] 訓練好的模型權重檔 (.pth)
-├── results/                    # [自動產生] 預測結果 CSV、性能報告 txt 與視覺化圖表 png
+├── processed_data/             # [程式自動產生] 預處理後的訓練/驗證/測試集與 Scaler
+├── models/                     # [程式自動產生] 訓練好的模型權重檔 (.pth)
+├── results/                    # [程式自動產生] 預測結果 CSV、性能報告 txt 與視覺化圖表 png
 ├── main/                       # 核心程式碼
 │   ├── stock_preprocessing.py  # [Step 1] 資料清洗與特徵工程
 │   ├── stock_train.py          # [Step 2] xLSTM 模型訓練
@@ -48,17 +44,17 @@
 ### 1\. 複製專案
 
 ```bash
-git clone [https://github.com/YourUsername/YourRepository.git](https://github.com/YourUsername/YourRepository.git)
-cd YourRepository
+git clone [https://github.com/RenJayXU/Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model.git](https://github.com/RenJayXU/Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model.git)
+cd Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model
 ```
 
-### 2\. [關鍵] 設置 xLSTM 依賴
+### 2\. [關鍵步驟] 配置 xLSTM 依賴
 
 本專案依賴 `muditbhargava66/PyxLSTM` 的核心實作。由於該套件尚未發布至 PyPI，**您必須確保專案根目錄下包含 `xLSTM` 資料夾**：
 
-1.  本儲存庫應已包含 `xLSTM` 資料夾。如果沒有，請前往 [PyxLSTM GitHub](https://github.com/muditbhargava66/PyxLSTM) 下載。
+1.  下載 [PyxLSTM GitHub](https://github.com/muditbhargava66/PyxLSTM) 專案。
 2.  將該專案中的 **`xLSTM` 資料夾** 複製到本專案的根目錄下。
-3.  確保目錄結構為 `YourRepository/xLSTM/block.py` ... 等。
+3.  確認目錄結構包含：`xLSTM/block.py`, `xLSTM/mlstm.py` 等檔案。
 
 ### 3\. 安裝 Python 套件
 
@@ -95,17 +91,17 @@ openpyxl
 python main/stock_preprocessing.py
 ```
 
-> **產出**: `processed_data/` 資料夾
+> **產出**: `processed_data/` 資料夾 (含 `train_xxxx.csv`, `test_xxxx.csv`)。
 
 ### Step 2: 訓練 xLSTM 模型
 
-對 5 支股票進行迴圈訓練，並使用早停機制防止過擬合。
+對 5 支股票進行迴圈訓練，並使用早停機制 (Early Stopping) 防止過擬合。
 
 ```bash
 python main/stock_train.py
 ```
 
-> **產出**: `models/` 下的 `.pth` 權重檔
+> **產出**: `models/` 下的 `.pth` 權重檔。
 
 ### Step 3: 預測與評估
 
@@ -119,7 +115,7 @@ python main/stock_predict.py
 >
 >   * `results/future_prediction_xxxx.csv` (投資組合輸入)
 >   * `results/xxxx_prediction.png` (走勢圖)
->   * `results/xxxx_performance.txt` (性能數據)
+>   * `results/xxxx_performance.txt` (性能數據)。
 
 ### Step 4: 投資組合優化 (應用層)
 
@@ -129,7 +125,7 @@ python main/stock_predict.py
 python main/portfolio_optimization_final.py
 ```
 
-> **產出**: 最佳權重建議、效率前緣圖 (`results/portfolio_optimization.png`)
+> **產出**: 最佳權重建議、效率前緣圖 (`results/portfolio_optimization.png`)。
 
 ### Step 5: 基準模型比較與報告 (選用)
 
