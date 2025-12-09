@@ -1,0 +1,10 @@
+torch=2.0.0
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+ta
+joblib
+scipy
+openpyxl
