@@ -88,7 +88,3 @@ python generate_report.py
 ---
 
 **Author**: RenJay Xu
-
-```
-
-```
