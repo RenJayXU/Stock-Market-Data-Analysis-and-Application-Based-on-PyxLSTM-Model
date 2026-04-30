@@ -68,11 +68,11 @@ python portfolio_optimization_final.py
 *   **特徵工程**：收錄開高低收等基本指標，並結合籌碼量能、波動風險、趨勢判定及動能轉折等，共計 86 個技術指標（輸入特徵共 91 維）[cite: 3]。
 *   **預測目標**：未來 20 個交易日之真實報酬率 (`Actual_Return`)[cite: 3]。
 *   **模型超參數**：
-    *   Sequence Length: 120[cite: 3]
-    *   Hidden Size: 128[cite: 3]
-    *   Num Blocks: 2 (針對 xLSTM)[cite: 3]
-    *   Dropout: 0.1[cite: 3]
-    *   Learning Rate: 0.0001[cite: 3]
+    *   Sequence Length: 120
+    *   Hidden Size: 128
+    *   Num Blocks: 2 
+    *   Dropout: 0.1
+    *   Learning Rate: 0.0001
 
 ---
 
@@ -101,7 +101,7 @@ python portfolio_optimization_final.py
 *   **xLSTM 組合 60 日最終淨值**：1,176,401 元（累積報酬 **+17.64%**）[cite: 3]
 *   **0050 ETF 60 日最終淨值**：1,204,802 元（累積報酬 **+20.48%**）[cite: 3]
 
-> **💡 研究結論**：xLSTM 在選股上具備高度的獲利潛力，但受限於短線頻繁換股（每 20 日調倉）帶來的摩擦成本，淨利微幅落後大盤。這為未來的模型優化（例如：將交易成本納入損失函數的懲罰項）提供了明確的研究方向[cite: 3]。
+> **💡 研究結論**：xLSTM 在選股上具備高度的獲利潛力，但受限於短線頻繁換股（每 20 日調倉）帶來的摩擦成本，淨利微幅落後大盤。這為未來的模型優化（例如：將交易成本納入損失函數的懲罰項）提供了明確的研究方向。
 
 ---
 
