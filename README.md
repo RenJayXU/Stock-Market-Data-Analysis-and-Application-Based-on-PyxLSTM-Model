@@ -32,9 +32,23 @@
 ### 1. 環境安裝
 請確保系統已安裝 Python 3.10+，並執行以下指令安裝所需套件：
 ```bash
-git clone [https://github.com/RenJayXU/Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model.git](https://github.com/RenJayXU/Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model.git)
+1. 克隆倉庫
+
+git clone https://github.com/RenJayXU/Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model.git
+
 cd Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model
-pip install -r requirements.txt
+
+2. 導入 xLSTM 核心模組
+
+由於 xLSTM 核心實作基於 muditbhargava66 的工作並進行了大量定制，您需要先下載原始模組，然後再應用我們的自訂修改。
+
+克隆或下載原始 PyxLSTM 倉庫：
+
+git clone https://github.com/muditbhargava66/PyxLSTM.git
+
+將下載的 PyxLSTM 倉庫中的 xLSTM 資料夾複製到您的 Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model 根目錄。
+
+請將針對本專案所做的修改（例如，對 mlstm.py、slstm.py 和 block.py 的變更）套用到 xLSTM 資料夾中，方法是將對應的檔案取代或更新為本倉庫中提供的檔案。確保目錄結構類似於 YourRepository/xLSTM/block.py。
 
 cd main
 
