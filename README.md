@@ -48,7 +48,7 @@ git clone https://github.com/muditbhargava66/PyxLSTM.git
 
 將下載的 PyxLSTM 倉庫中的 xLSTM 資料夾複製到您的 Stock-Market-Data-Analysis-and-Application-Based-on-PyxLSTM-Model 根目錄。
 
-請將針對本專案所做的修改（例如，對 mlstm.py、slstm.py 和 block.py 的變更）套用到 xLSTM 資料夾中，方法是將對應的檔案取代或更新為本倉庫中提供的檔案。
+請將針對本專案所做的修改xLSTM 資料夾取代原始的 xLSTM 資料夾。
 
 cd main
 
