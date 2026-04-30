@@ -1,0 +1,10 @@
+torch
+numpy
+pandas
+yfinance
+tqdm
+matplotlib
+seaborn
+scikit-learn
+joblib
+PyYAML
